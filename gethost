@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+    arg="$1"
+    arghead="${1:0:5}"
+    argtail="${1:5}"
+else
+    echo "$1"
+    exit 0
+fi
+
+if [ "$arg" = "ilab" ]; then
+    echo "ilab3"
+    exit 1
+elif [ "${arg:0:4}" = "ilab" ]; then
+    echo "ilab${arg:4:5}"
+    exit 1
+elif [ "$arghead" = "rucs_" ]; then
+    echo "${argtail}.cs.rutgers.edu"
+    exit 3
+fi
+
+echo "$1"
+exit 0
